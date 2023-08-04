@@ -1,0 +1,29 @@
+{
+  "schema": {
+    "types": [
+      {
+        "name": "Root",
+        "actions": [
+          {
+            "name": "configure",
+            "type": "Void",
+            "params": [
+              {
+                "name": "guildId",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "handleEvent",
+            "type": "Void"
+          }
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "discord": "discord:",
+    "weather": "weather:"
+  }
+}
