@@ -3,6 +3,7 @@
     "types": [
       {
         "name": "Root",
+        "description": "Program to create a Discord command and use it to get the weather.",
         "actions": [
           {
             "name": "configure",
@@ -17,6 +18,12 @@
           {
             "name": "handleEvent",
             "type": "Void"
+          }
+        ],
+        "fields": [
+          {
+            "name": "status",
+            "type": "String"
           }
         ]
       }

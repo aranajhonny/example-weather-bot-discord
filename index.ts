@@ -3,9 +3,20 @@
 // `state` is an object that persists across program updates. Store data here.
 import { nodes, root, state } from "membrane";
 
+export const Root = {
+  status: () => {
+    if (!state.guildId) {
+      return "Please set guildId with [configure](:configure)";
+    } else {
+      return "Ready";
+    }
+  },
+};
+
 export async function configure({ args: { guildId } }) {
+  state.guildId = guildId;
   // Get the guild
-  const gref = nodes.discord.guilds.one({ id: guildId });
+  const gref = nodes.discord.guilds.one({ id: state.guildId });
 
   // Create the command
   await gref.createCommand({
@@ -36,7 +47,7 @@ export async function handleEvent({ event }) {
     .$query(`{ temp feels_like }`);
 
   // Send the weather to the guild
-  await nodes.discord.followupWebhook({
+  await nodes.discord.followUpWebhook({
     token,
     application_id,
     message: {
