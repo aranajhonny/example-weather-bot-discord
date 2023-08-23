@@ -6,7 +6,7 @@ import { nodes, root, state } from "membrane";
 export const Root = {
   status: () => {
     if (!state.guildId) {
-      return "Please set guildId with [configure](:configure)";
+      return "Please set the guildId with [configure](:configure)";
     } else {
       return "Ready";
     }
